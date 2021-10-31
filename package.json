@@ -16,7 +16,7 @@
     "mongodb": "^3.6.2",
     "mongoose": "^5.13.5",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.4",
+    "nodemon": "^2.0.14",
     "sugar": "^2.0.6"
   }
 }
