@@ -12,16 +12,14 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 
 router.get("/", (req, res, next) => {
 
-    var currentDate = new Date();
+    const currentDate = new Date();
 
     GetQuery(Spending, function (result, test) {
-        // console.log(result,test);
         var totalExp = formatMoney(result[0].total);
 
         try {
             Category.find({}, { _id: 0, description: 0 })
                 .then(out => {
-                    // console.log(out);
                     res.status(200).render('index', {
                         total: totalExp,
                         item: test,
@@ -51,16 +49,8 @@ router.post("/", (req, res, next) => {
     });
 
     spend.save().then(result => {
-        // res.status(200).json({
-        //     message: 'Index page POST request',
-        //     spend: result
-        // });
-        // res.send(result);
-        // console.log(result);
-
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify({ result }, null, 3));
-
     }).catch(err => {
         console.log(err);
     });
@@ -70,11 +60,9 @@ router.post("/", (req, res, next) => {
 
 router.get("/price", (req, res, next) => {
     GetQuery(Spending, function (result, test) {
-        // console.log(result,test);
         var totalExp = formatMoney(result[0].total);
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify({ totalExp, test }, null, 3));
-        // console.log(totalExp, test);
     });
 });
 
@@ -108,10 +96,6 @@ function GetFormattedDate (date) {
 
 function GetQuery (Spending, callback) {
     var currentDate = new Date();
-    // var currMonth = currentDate.getMonth() + 1;
-    // Modification for issue#147 (Total spending not showing proper)
-    // var currYear = currentDate.getFullYear();
-
     Spending.aggregate([
         { $project: { month: { $month: '$date' }, year: { $year: '$date' }, cost: true } },
         { $match: { month: currentDate.getMonth() + 1, year: currentDate.getFullYear() } },
@@ -149,7 +133,6 @@ function GetQuery (Spending, callback) {
             callback(result, test);
         }).catch(err => {
             console.log(err);
-            // res.status(500).json(err);
             callback(err);
         });
 
