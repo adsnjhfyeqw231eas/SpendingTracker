@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <%- include('partials/head') %>
 </head>
-
 <body>
-
     <div class="mdl-grid">
-
         <%- include('partials/navbar') %>
-
         <!-- added to keep everything in center -->
         <div class="mdl-cell mdl-cell--3-col"></div>
-
         <div class="mdl-cell mdl-cell--6-col">
             <% if ("development" === process.env.NODE_ENV) { %>
             <h5 style="color: red">Development Mode</h5>
             <% } %>
-
+            
             <!-- ADD FORM -->
             <h1 style="display: inline">&#8377</h1>
             <h1 id="total-amount" style="display: inline">
@@ -30,7 +24,6 @@
             </h6>
             <hr>
             <form class="myForm" action="/">
-
                 <% if(category.length > 0 && null != category.length){ %>
                 <div class="form-group">
                     <label for="sel1">Category</label>
@@ -68,7 +61,6 @@
                 <div id="spinner" class="mdl-spinner mdl-js-spinner is-active"></div>
 
             </form>
-
             <% if ("active" === process.env.UI_SEARCH_DATE) { %>
             <br><br>
             <div id="accordion">
@@ -107,15 +99,11 @@
                 </div>
             </div>
             <% } %>
-
             <div class="mdl-cell mdl-cell--3-col"></div>
-
             <%- include('partials/table') %>
-
         </div>
-
     </div>
-
+    
     <!-- toast -->
     <div id="demo-toast-example" aria-live="assertive" aria-atomic="true" aria-relevant="text"
         class="mdl-snackbar mdl-js-snackbar">
@@ -125,5 +113,4 @@
 
     <script defer src="script/script.js"></script>
 </body>
-
 </html>
