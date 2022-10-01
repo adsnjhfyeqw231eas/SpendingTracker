@@ -2,13 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Spending = require('../models/spending');
 
-// router.get("/", (req, res, next) => {
-
-//     res.status(200).render('date', {item: ""});
-
-// });
-
-
 //sample URL    http://localhost:3000/date?sdate=2019-06-02&edate=2019-06-30
 router.get("/", (req, res, next) => {
     var sdate = GetFormattedDate(req.query.sdate);
@@ -40,9 +33,6 @@ router.get("/", (req, res, next) => {
             },
             { $sort: { date: -1 } }
         ]).then(result => {
-            // res.status(200).json({
-            //     message: result
-            // });
             res.status(200).render('date', { item: result });
         }).catch(err => {
             console.log(err);
@@ -53,11 +43,9 @@ router.get("/", (req, res, next) => {
 function GetFormattedDate(date) {
     if (date != null) {
         var fields = date.split('/');
-
         var day = fields[0];
         var month = fields[1];
         var year = fields[2];
-
         date = year + '-' + month + '-' + day;
         return date;
     }
