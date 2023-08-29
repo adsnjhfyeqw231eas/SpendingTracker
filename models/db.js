@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+console.log(process.env)
 var mongoose = require("mongoose");
 
 const dbLink = process.env.DATABASE_URL;
