@@ -8,6 +8,6 @@ https://test-spendingtracker.herokuapp.com/ :rocket:
 
 # Run the app as docker container<br>
 note: we already have a Dockerfile at the same directory as package.json<br>
-$ docker build -t spendingTracker . <br>
-$ docker run -d -p 3000:3000 --name budgetapp spendingTracker<br>
+$ docker build -t spendingtracker . <br>
+$ docker run -d -p 3000:3000 --name budgetapp spendingtracker<br>
 test connectivity at b rowser.
