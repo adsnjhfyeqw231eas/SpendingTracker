@@ -6,8 +6,8 @@ _"If you can't measure it, you can't improve it."_ - [Peter Drucker](https://en.
 ## Check it out
 https://test-spendingtracker.herokuapp.com/ :rocket:
 
-# Run the app as docker container
-note: we already have a Dockerfile at the same directory as package.json
-$ docker build -t spendingTracker .
-$ docker run -d -p 3000:3000 --name budgetapp spendingTracker
+# Run the app as docker container<br>
+note: we already have a Dockerfile at the same directory as package.json<br>
+$ docker build -t spendingTracker . <br>
+$ docker run -d -p 3000:3000 --name budgetapp spendingTracker<br>
 test connectivity at b rowser.
